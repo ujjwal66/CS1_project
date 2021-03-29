@@ -1,0 +1,22 @@
+import random
+
+my_list = [[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]]
+new_list = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+string="BINGO"
+def bingo(my_list):
+    for i in range(len(my_list)):
+        print("i", i)
+        for j in range(len(my_list)):
+            print("j",j)
+            random_num = random.randint(1,25)
+            print("random_num",random_num)
+            user_num = input("Provide a number:")
+            print("user_num",user_num)
+            if int(user_num) in (x for sublist in my_list for x in sublist) and int(user_num) == int(random_num):
+                print("i,j",i,j)
+                new_list[i][j] = user_num
+                print(new_list)
+        if len(new_list[i]) == len(my_list[i]):
+            print(string[:i+1])
+
+bingo(my_list)
